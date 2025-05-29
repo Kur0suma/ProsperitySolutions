@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Project</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+
+
+<body>
+    <div id="navigation">
+        <div id="nav1">
+            <img id="logo" src="images/LOGO PS.png" alt="Logo" id="logo">
+        </div>
+
+        <div id="nav2">
+
+            <div class="navlink">
+                <a href="#">Home </a>
+            </div>
+
+            <div class="navlink">
+                <a href="aboutUs.html">About Us </a>
+            </div>
+
+            <div class="navlink">
+                <a href="service.html">Service </a>
+            </div>
+
+            <div class="navlink">
+                <a href="contactUs.html">Contact Us </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="bannerimages" class="slideshow-container">
+        <div class="slide fade">
+            <img src="images/Trident Luansha Highlites-20.jpg" alt="Banner 1">
+        </div>
+        <div class="slide fade">
+            <img src="images/Trident Luansha Highlites-11.jpg" alt="Banner 2">
+        </div>
+        <div class="slide fade">
+            <img src="images/Trident Luansha Highlites-12.jpg" alt="Banner 3">
+        </div>
+        <div class="slide fade">
+            <img src="images/Trident Luansha Highlites-13.jpg" alt="Banner 1">
+        </div>
+        <div class="slide fade">
+            <img src="images/Trident Luansha Highlites-14.jpg" alt="Banner 2">
+        </div>
+        <div class="slide fade">
+            <img src="images/Trident Luansha Highlites-15.jpg" alt="Banner 3">
+        </div>
+
+
+        <!-- Controls -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+    <!-- Dots -->
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+    </div>
+    </div>
+
+    <div id="content">
+        <div class="content-section">
+            <div id="cellConainer">
+<div class="cell1">
+    <div class="cellContent">Top Layer Content</div>
+    <div class="cellReveal">Bottom Layer Content</div>
+</div>
+
+<div class="cell2">
+    <div class="cellContent">Top Layer Content</div>
+    <div class="cellReveal">Bottom Layer Content</div>
+</div>
+
+<div class="cell3">
+    <div class="cellContent">Top Layer Content</div>
+    <div class="cellReveal">Bottom Layer Content</div>
+</div>
+                <!-- <div id="cell1">
+                    <p class="cellContent" >Cell 1 Content</p>
+                </div> -->
+                <!-- <div id="cell2">
+                    <p class="cellContent" >Cell 2 Content</p>
+                </div> -->
+                <!-- <div id="cell3">
+                    <p class="cellContent" >Cell 3 Content</p>
+                </div> -->
+            </div>
+
+<p id="AboutUs">
+    Posterity Solution is more than an organization, we are a <br>
+    movement dedicated to cultivating strong character and responsible <br>
+    leadership across all generations.<br>
+    We believe true transformation begins within, and our mission is to inspire <br>
+    individuals to lead with integrity, serve with purpose, and <br>
+    drive positiv change in their communities and nation.
+</p>
+
+        </div>
+
+    </div>
+
+<div id="footer">
+    <div class="footer-section" id="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: info@posteritysolutions.com</p>
+        <p>Phone: +260 969 410 704</p>
+    </div>
+    <div class="footer-section" id="footer-address">
+        <h3>Address</h3>
+        <p>Plot No. 18884 Bulalo Rd</p>
+        <p>New Kasama, Lusaka, Zambia</p>
+    </div>
+</div>
+    
+
+    <!-- Place before </body> -->
+<script>
+// filepath: c:\Users\user\Documents\WEbProject\index.html
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+showSlides(slideIndex);
+
+function showSlides(n) {
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+    slides.forEach((slide, i) => {
+        slide.style.opacity = (i === slideIndex) ? 1 : 0;
+        slide.style.zIndex = (i === slideIndex) ? 1 : 0;
+    });
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === slideIndex);
+    });
+}
+
+function plusSlides(n) {
+    slideIndex += n;
+    showSlides(slideIndex);
+}
+
+function currentSlide(n) {
+    slideIndex = n;
+    showSlides(slideIndex);
+}
+
+document.querySelector('.prev').onclick = () => plusSlides(-1);
+document.querySelector('.next').onclick = () => plusSlides(1);
+dots.forEach((dot, i) => {
+    dot.onclick = () => currentSlide(i);
+});
+</script>
+
+</body>
+</html>
