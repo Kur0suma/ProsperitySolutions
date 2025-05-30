@@ -13,12 +13,11 @@ html, body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.864);
+    background-color: rgb(255, 255, 255);
     max-height: 90px;
     position: sticky;   /* Changed from absolute to fixed */
     top: 0;            /* Stick to the top */
     left: 0;
-    width: 100%;       /* Full width */
     z-index: 1000;
     padding: 10px;
 }
@@ -36,7 +35,7 @@ html, body {
 }
 
 #logo {
-    max-width: 70%;
+    max-width: 100%;
     max-height: 100%;
     height: auto;
     width: auto;
@@ -46,26 +45,26 @@ html, body {
     overflow: hidden;
 }
 
-#nav2Mobile{
+#nav2Desk{
     display: none;
+
 }
 
-
-#nav2Desk{
+#nav2Mobile{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: end;
 
     /* border: 2px solid rgb(83, 66, 0); */
-    min-width: 50%;
+    min-width: 30%;
 
 }
 
 .navlink{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
 
     min-width: 100px;
     padding: 10px;
@@ -74,6 +73,65 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Hide navlinks by default on mobile */
+#nav2Mobile .navlinks {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 76px; /* Adjust based on your nav height */
+    right: 10px;   /* Keep this */
+    left: auto;    /* Add this to disable left alignment */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1001;
+    width: 180px;  /* Adjust width as needed */
+}
+
+/* Show navlinks when checkbox is checked */
+#nav2Mobile .nav-toggle:checked + .nav-toggle-label + .navlinks {
+    display: flex;
+}
+
+/* Hamburger icon styling */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+}
+
+.nav-toggle-label span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    background: #222;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Hide hamburger and show normal nav on desktop */
+@media (min-width: 1024px) {
+    .nav-toggle-label, .nav-toggle {
+        display: none !important;
+    }
+    #nav2Mobile .navlinks {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
 
 a{
     color: black;
@@ -99,8 +157,8 @@ a{
     border-radius: 0px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 
-    background-image: url("images/johY4-unsplash.png");
-    background-position: center;
+    background-image: url("images/Trident\ Luansha\ Highlites-5edit1.jpg");
+    background-position: top;
     background-size: cover;
 }
 
@@ -140,7 +198,7 @@ a{
 }
 
 #cellConainer1{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: start;
     align-items: end;
@@ -156,7 +214,7 @@ a{
 }
 
 #cellCont1Tiltle{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: end;
@@ -176,7 +234,7 @@ a{
 }
 
 #tableOfContents{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: end;
@@ -188,7 +246,7 @@ a{
 }
 
 .contentTitle{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: start;
@@ -213,10 +271,11 @@ a{
 
 
     height: auto;
-    width: 70%;
+    width: 80%;
 
     /* border: 2px solid rgb(255, 0, 225); */
     padding-left: 5%;
+    padding-right: 5%;
     padding-top: 2%;
 }
 
@@ -225,10 +284,10 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 
     height: auto;
-    width: 70%;
+    width: 100%;
 
     /* border: 2px solid rgb(255, 238, 0); */
 }
@@ -237,10 +296,10 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 
     height: auto;
-    width: 70%;
+    width: 100%;
 
     /* border: 2px solid rgb(255, 238, 0); */
 }
@@ -249,10 +308,10 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 
     height: auto;
-    width: 70%;
+    width: 100%;
 
     /* border: 2px solid rgb(255, 238, 0); */
 }
@@ -261,10 +320,10 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 
     height: auto;
-    width: 70%;
+    width: 100%;
 
     /* border: 2px solid rgb(255, 238, 0); */
 }
@@ -273,10 +332,10 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 
     height: auto;
-    width: 70%;
+    width: 100%;
 
     /* border: 2px solid rgb(255, 238, 0); */
 }
@@ -285,16 +344,16 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 
     height: auto;
-    width: 70%;
+    width: 100%;
 
     /* border: 2px solid rgb(255, 238, 0); */
 }
 
 .cellTitle{
-    text-align: right;
+    text-align: center;
     font-family: Raleway;
     font-size: 1.3rem;
     color: rgba(0, 115, 255, 0.705);
@@ -304,6 +363,7 @@ a{
 
 .cellContent{
     font-family: Raleway;
+    text-align: center;
 }
 
 imp{

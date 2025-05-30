@@ -13,12 +13,11 @@ html, body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.864);
+    background-color: rgb(255, 255, 255);
     max-height: 90px;
     position: sticky;   /* Changed from absolute to fixed */
     top: 0;            /* Stick to the top */
     left: 0;
-    width: 100%;       /* Full width */
     z-index: 1000;
     padding: 10px;
 }
@@ -36,7 +35,7 @@ html, body {
 }
 
 #logo {
-    max-width: 70%;
+    max-width: 100%;
     max-height: 100%;
     height: auto;
     width: auto;
@@ -46,26 +45,26 @@ html, body {
     overflow: hidden;
 }
 
-#nav2Mobile{
+#nav2Desk{
     display: none;
+
 }
 
-
-#nav2Desk{
+#nav2Mobile{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: end;
 
     /* border: 2px solid rgb(83, 66, 0); */
-    min-width: 50%;
+    min-width: 30%;
 
 }
 
 .navlink{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
 
     min-width: 100px;
     padding: 10px;
@@ -74,6 +73,65 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Hide navlinks by default on mobile */
+#nav2Mobile .navlinks {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 76px; /* Adjust based on your nav height */
+    right: 10px;   /* Keep this */
+    left: auto;    /* Add this to disable left alignment */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1001;
+    width: 180px;  /* Adjust width as needed */
+}
+
+/* Show navlinks when checkbox is checked */
+#nav2Mobile .nav-toggle:checked + .nav-toggle-label + .navlinks {
+    display: flex;
+}
+
+/* Hamburger icon styling */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+}
+
+.nav-toggle-label span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    background: #222;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Hide hamburger and show normal nav on desktop */
+@media (min-width: 1024px) {
+    .nav-toggle-label, .nav-toggle {
+        display: none !important;
+    }
+    #nav2Mobile .navlinks {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
 
 a{
     color: black;
@@ -100,7 +158,7 @@ a{
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 
     background-image: url("images/Contact-Us.jpg");
-    background-position: top;
+    background-position: center;
     background-size: cover;
 }
 
@@ -148,10 +206,10 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     
     width: 100%;
-    height: 400px;
+    height: 220vw;
     overflow: hidden;
 }
 
@@ -162,14 +220,15 @@ a{
     flex-direction: column;     
 
     position: relative;
-    width: 25%;
-    max-width: 25%;
+    width: 80%;
     height: 250px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 50px;
+
 
     background-image: url("images/Trident\ Luansha\ Highlites-14.jpg");
     background-position: center;
@@ -183,14 +242,14 @@ a{
     flex-direction: column;
     
     position: relative;
-    width: 25%;
-    max-width: 25%;
+    width: 80%;
     height: 250px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 50px;
 
     background-image: url("images/Trident\ Luansha\ Highlites-17.jpg");
     background-position: center;
@@ -204,12 +263,12 @@ a{
     flex-direction: column;
 
     position: relative;
-    width: 25%;
-    max-width: 25%;
+    width: 80%;
     height: 250px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
 
@@ -332,7 +391,6 @@ p{
     padding-left: 30px;
     font-family: Raleway;
     font-size: 1rem;
-    width: 97.7%;
 }
 
 .footer-section {
@@ -349,4 +407,12 @@ p{
 
 #footer p {
     margin: 4px 0;
+}
+
+#footer-contact{
+    width: 50%;
+}
+
+#footer-address{
+    width: 50%;
 }
