@@ -14,11 +14,10 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.864);
-    max-height: 90px;
+    height: 70px;
     position: sticky;   /* Changed from absolute to fixed */
     top: 0;            /* Stick to the top */
     left: 0;
-    width: 100%;       /* Full width */
     z-index: 1000;
     padding: 10px;
 }
@@ -75,10 +74,14 @@ html, body {
 }
 
 
-a{
+.navlink a{
     color: black;
     text-decoration: none;
     padding: 10px;
+}
+
+.navlink a:hover{
+    color: rgb(210, 148, 60);
 }
 
 #dropdownicon{

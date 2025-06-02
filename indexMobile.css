@@ -148,18 +148,21 @@ a{
     position: relative;
     width: 100%;
     max-width: 100%;
-    height: 45vw;
+    height: 60vw;
     overflow: hidden;
-    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    
 }
 
 .slide {
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    animation: fadeSlide 12s infinite;
+    top: 0; left: 0;
+}
+.slide:first-child {
+    display: block;
 }
 
 .slide img {
@@ -169,15 +172,7 @@ a{
     display: block;
 }
 
-.slide:nth-child(1) {
-    animation-delay: 0s;
-}
-.slide:nth-child(2) {
-    animation-delay: 4s;
-}
-.slide:nth-child(3) {
-    animation-delay: 8s;
-}
+
 
 @keyframes fadeSlide {
     0% { opacity: 0; }
@@ -190,18 +185,22 @@ a{
 /* Controls */
 .prev, .next {
     cursor: pointer;
+    cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 0;                /* Align to top */
     width: auto;
-    padding: 16px;
-    margin-top: -22px;
+    height: 100%;          /* Full height of slideshow */
+    padding: 0 16px;       /* Vertical padding removed, horizontal kept */
     color: white;
     font-weight: bold;
     font-size: 24px;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    background: rgba(0,0,0,0.3);
     z-index: 2;
+    display: flex;         /* Center arrow vertically */
+    align-items: center;   /* Center arrow vertically */
+    background: transparent;
+    transition: background 0.3s;
 }
 .next {
     right: 0;
@@ -209,6 +208,14 @@ a{
 }
 .prev {
     left: 0;
+}
+
+.prev {
+    background-image: linear-gradient(to right,  rgba(0, 0, 0, 0.25),  rgba(0, 0, 0, 0));   
+}
+
+.next {
+    background-image: linear-gradient(to right,  rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0.25));   
 }
 
 /* Dots */
@@ -256,19 +263,17 @@ a{
     flex-direction: column;
     
     width: 100%;
-    height: 150vw;
+    height: 180vw;
     overflow: hidden;
 }
 
-#cell1{
+.cell1{
     display: flex;
     justify-content: start;
     align-items: end;
 
     position: relative;
-    width: 25%;
-    max-width: 25%;
-    height: 250px;
+    height: 150px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -277,15 +282,13 @@ a{
 
 }
 
-#cell2{
+.cell2{
     display: flex;
     justify-content: start;
     align-items: end;
 
     position: relative;
-    width: 25%;
-    max-width: 25%;
-    height: 250px;
+    height: 150px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -294,15 +297,13 @@ a{
 
 }
 
-#cell3{
+.cell3{
     display: flex;
     justify-content: start;
     align-items: end;
 
     position: relative;
-    width: 25%;
-    max-width: 25%;
-    height: 250px;
+    height: 150px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -349,7 +350,6 @@ a{
 .cell1, .cell2, .cell3 {
     position: relative;
     width: 300px;      /* Set your desired width */
-    height: 400px;     /* Set your desired height */
     margin: 20px;
     overflow: hidden;
     border-radius: 12px;

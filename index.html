@@ -14,10 +14,12 @@
 
 <body>
     <div id="navigation">
+        <a href="index.html">
         <div id="nav1">
             <img id="logo" src="images/LOGO PS.png" alt="Logo" id="logo">
         </div>
-
+        </a>
+        
     <div id="nav2Desk">
 
             <div class="navlink">
@@ -64,30 +66,42 @@
 
     </div>
 
-        <!-- <div id="nav2Mobile">
+<div  class="slideshow-container">
+    <div class="slide active">
+        <img src="images/banner/WhatsApp Image 2025-06-01 at 21.54.57_a2eea260-min.jpg" alt="Banner 1">
+    </div>
+    <div class="slide active">
+            <img src="images/banner/Trident Luansha Highlites-min.jpg" alt="Banner 2">
+    </div>
+        <div class="slide active">
+            <img src="images/banner/WhatsApp Image 2025-06-01 at 21.54.56_3e7a74dd-min.jpg" alt="Banner 3">
+    </div>
+    <div class="slide active">
+            <img src="images/banner/WhatsApp Image 2025-06-01 at 21.54.56_d9ce58af-min.jpg" alt="Banner 4">
+    </div>
+    <div class="slide active">
+            <img src="images/banner/WhatsApp Image 2025-06-01 at 21.54.57_934d0240-min.jpg" alt="Banner 5">
+    </div>
+    <div class="slide active">
+            <img src="images/banner/WhatsApp Image 2025-06-01 at 21.54.58_f22de277-min.jpg" alt="Banner 6">
+    </div>
 
-            <div class="navlink">
-                <a href="#">Home </a>
-            </div>
+    <!-- Add more slides as needed -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
 
-            <div class="navlink">
-                <a href="aboutUs.html">About Us </a>
-            </div>
+        <!-- Add more dots as needed -->
+    </div>
+</div>
 
-            <div class="navlink">
-                <a href="service.html">Service </a>
-            </div>
-
-            <div class="navlink">
-                <a href="contactUs.html">Contact Us </a>
-            </div>
-
-        </div>
-    </div> -->
-
-
-
-    <div id="bannerimages" class="slideshow-container">
+    <!-- <div id="bannerimages" class="slideshow-container">
         <div class="slide fade">
             <img src="images/banner/WhatsApp Image 2025-06-01 at 21.54.57_a2eea260-min.jpg" alt="Banner 1">
         </div>
@@ -108,10 +122,8 @@
         </div>
 
 
-        <!-- Controls -->
     <a class="prev">&#10094;</a>
     <a class="next">&#10095;</a>
-    <!-- Dots -->
     <div class="dots">
         <span class="dot"></span>
         <span class="dot"></span>
@@ -121,25 +133,32 @@
         <span class="dot"></span>
 
     </div>
-    </div>
+    </div> -->
 
     <div id="content">
         <div class="content-section">
             <div id="cellConainer">
-<div class="cell1">
+<a href="aboutUs.html"><div class="cell1">
     <div class="cellContent">About Us</div>
     <div class="cellReveal">Learn more</div>
+    
 </div>
+</a>
 
+<a href="service.html">
 <div class="cell2">
     <div class="cellContent">Service</div>
     <div class="cellReveal">Expirience</div>
 </div>
+</a>
 
+<a href="contactUs.html">
 <div class="cell3">
     <div class="cellContent">Contact Us</div>
     <div class="cellReveal">Get in touch</div>
 </div>
+</a>
+
                 <!-- <div id="cell1">
                     <p class="cellContent" >Cell 1 Content</p>
                 </div> -->
@@ -180,39 +199,46 @@
 
     <!-- Place before </body> -->
 <script>
-// filepath: c:\Users\user\Documents\WEbProject\index.html
-let slideIndex = 0;
+    let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
-showSlides(slideIndex);
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
 
-function showSlides(n) {
-    if (n >= slides.length) { slideIndex = 0; }
-    if (n < 0) { slideIndex = slides.length - 1; }
+function showSlide(n) {
     slides.forEach((slide, i) => {
-        slide.style.opacity = (i === slideIndex) ? 1 : 0;
-        slide.style.zIndex = (i === slideIndex) ? 1 : 0;
+        slide.style.display = (i === n) ? 'block' : 'none';
     });
     dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === slideIndex);
+        dot.classList.toggle('active', i === n);
     });
 }
 
-function plusSlides(n) {
-    slideIndex += n;
-    showSlides(slideIndex);
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
 }
 
-function currentSlide(n) {
-    slideIndex = n;
-    showSlides(slideIndex);
+function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
 }
 
-document.querySelector('.prev').onclick = () => plusSlides(-1);
-document.querySelector('.next').onclick = () => plusSlides(1);
 dots.forEach((dot, i) => {
-    dot.onclick = () => currentSlide(i);
+    dot.onclick = () => {
+        slideIndex = i;
+        showSlide(slideIndex);
+    };
 });
+
+if (next) next.onclick = nextSlide;
+if (prev) prev.onclick = prevSlide;
+
+// Auto-play
+setInterval(nextSlide, 4000);
+
+// Initialize
+showSlide(slideIndex);
 </script>
 
 </body>
