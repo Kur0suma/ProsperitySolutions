@@ -15,7 +15,7 @@ html, body {
     align-items: center;
     background-color: rgb(255, 255, 255);
     max-height: 90px;
-    position: sticky;   /* Changed from absolute to fixed */
+    position: fixed;   /* Changed from absolute to fixed */
     top: 0;            /* Stick to the top */
     left: 0;
     z-index: 1000;
@@ -275,9 +275,6 @@ a{
     margin-left: 50px;
     margin-right: 50px;
 
-    background-image: url("images/Trident\ Luansha\ Highlites-14.jpg");
-    background-position: center;
-    background-size: cover;
 }
 
 #cell2{
@@ -295,9 +292,6 @@ a{
     margin-left: 50px;
     margin-right: 50px;
 
-    background-image: url("images/Trident\ Luansha\ Highlites-17.jpg");
-    background-position: center;
-    background-size: cover;
 }
 
 #cell3{
@@ -314,10 +308,6 @@ a{
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     margin-left: 50px;
     margin-right: 50px;
-
-    background-image: url("images/Trident\ Luansha\ Highlites-5.jpg");
-    background-position: center;
-    background-size: cover;
 }
 
 .cellContent{
@@ -367,7 +357,6 @@ a{
     background: #fff;
     display: inline-block;
     vertical-align: top;
-    background-image: url("images/Trident\ Luansha\ Highlites-5.jpg");
 }
 
 .cellContent, .cellReveal {
@@ -413,21 +402,21 @@ a{
 } */
 
 .cell1{
-    background-image: url("images/Trident\ Luansha\ Highlites-14.jpg");
+    background-image: url("images/Trident\ Luansha\ Highlites-11.jpg");
     background-position: center;
     background-size: cover;
 
 }
 
 .cell2{
-    background-image: url("images/Trident\ Luansha\ Highlites-17.jpg");
+    background-image: url("images/Trident\ Ndola\ Highlites-22.jpg");
     background-position: center;
     background-size: cover;
 
 }
 
 .cell3{
-    background-image: url("images/Trident\ Luansha\ Highlites-5.jpg");
+    background-image: url("images/Trident\ Luansha\ Highlites-19.jpg");
     background-position: center;
     background-size: cover;
 
