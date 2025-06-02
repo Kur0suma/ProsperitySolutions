@@ -15,7 +15,7 @@ html, body {
     align-items: center;
     background-color: rgb(255, 255, 255);
     max-height: 90px;
-    position: fixed;   /* Changed from absolute to fixed */
+    position: sticky;   /* Changed from absolute to fixed */
     top: 0;            /* Stick to the top */
     left: 0;
     z-index: 1000;
